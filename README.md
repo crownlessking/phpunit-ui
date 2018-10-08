@@ -1,6 +1,6 @@
 # UTUI Help Page
 
-UTUI stands for "unit test user interface".
+UTUI stands for "unit test user interface".  
 As of now, it is a simple interace to get PHPUnit outputs in the browser. Currently, this interface was designed to works with **`[composer](https://getcomposer.org/)`** PHP projects. This means,  
 
 *   Your project's root folder must contain a `composer.json` file.
@@ -27,6 +27,23 @@ Since I am on Linux, I did so using the following command:
 `chown -R :www-data utui`  
 
 When I changed the group to `www-data` the problem was gone. Naturally, PHP should be in the www-data group. If you still get permission issues, try deleting the `tmp` folder.
+
+### Troubleshooting GitHub Downloads
+
+After downloading UTUI from GitHub, the permissions will be all messed up.  
+After unzipped the UTUI folder, open a terminal and run the following command on the newly unzipped folder:  
+
+`sudo chown -R :www-data phpunit-ui-master`  
+
+and then  
+
+`chmod -R a+rX phpunit-ui-master`  
+
+and finally,  
+
+`chmod -R g+w phpunit-ui-master`  
+
+This should give PHP enough permission to create folders.
 
 ## How to Use
 

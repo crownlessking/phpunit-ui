@@ -58,6 +58,17 @@
     Naturally, PHP should be in the www-data group.
     If you still get permission issues, try deleting the <code>tmp</code> folder.
   </p>
+  <h3>Troubleshooting GitHub Downloads</h3>
+  <p>
+    After downloading UTUI from GitHub, the permissions will be all messed up.<br>
+    After unzipped the UTUI folder, open a terminal and run the following command on the newly unzipped folder:<br>
+  </p>
+  <p>
+    <code>sudo chown -R :www-data phpunit-ui-master</code><br><br>
+    and then <br><br><code>chmod -R a+rX phpunit-ui-master</code><br><br>
+    and finally, <br><br><code>chmod -R g+w phpunit-ui-master</code><br><br>
+    This should give PHP enough permission to create folders.
+  </p>
   <h2 class="center">How to Use</h2>
   <p>
     Click on the <img src="./images/help/Selection_014.png" /> icon on the navigation bar to bring up the unit-test
