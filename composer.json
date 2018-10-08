@@ -1,0 +1,16 @@
+{
+    "name": "crownlessking/phpunit-server",
+    "description": "Send phpunit output to a web client",
+    "authors": [
+        {
+            "name": "Riviere King",
+            "email": "riviere@crownlessking.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Service\\" : "src/"
+        }
+    },
+    "require": {}
+}

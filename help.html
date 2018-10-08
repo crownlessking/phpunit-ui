@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    body {
+      font-size: 14pt;
+    }
+    .center {
+      text-align: center;
+    }
+  </style>
+  <title>UTUI Help Page</title>
+</head>
+<body>
+  <h1 class="center">UTUI Help Page</h1>
+  <p>
+    UTUI stands for "unit test user interface".<br>
+    As of now, it is a simple interace to get PHPUnit outputs in the browser.
+    Currently, this interface was designed to works with <strong><code><a href="https://getcomposer.org/" target="__blank">composer</a></code></strong> PHP projects.
+    This means,<br>
+    <ul>
+      <li>Your project's root folder must contain a <code>composer.json</code> file.</li>
+      <li>Your project's <code>vendor/autoload.php</code> must be properly configured.</li>
+      <li>You're using <strong><code><a href="https://phpunit.de/" target="__blank">phpunit</a></code></strong> testing framework.</li>
+    </ul>
+  </p>
+  <p>
+    However, if you have your own <code>autoload.php</code> file located in <code>/vendor</code> from your project's root folder
+    or, you have a <code>bootstrap</code> file located in your test folder and provided that you're also using <code>phpunit</code>,
+    the interface should still work as it should.
+  </p>
+  <h2 class="center">Setup</h2>
+  <p>
+    To use UTUI, you first need to download the <code>PHAR</code> version of <code>phpunit</code>.
+    Once that is done, rename the file to <code>phpunit</code>, with no extension.
+    Then paste it in the root folder of UTUI, next to the <code>index.php</code> file.
+  </p>
+  <p>
+    <strong>Note:</strong>
+    This interface was implemented using <code>phpunit.phar version 7.3.x</code>.
+  </p>
+  <h3>Troubleshooting</h3>
+  <p>
+    For <cod>PHP</cod> projects, <cod>PHP-CLI</cod> is required. Make sure it is installed properly by doing <code>php -v</code>
+    from the command line. the <code>PHP</code> version should get printed. If not, download and install it.<br>
+    Permission is the only issue I ran into when developing this interface.<br>
+    Make sure that <code>PHP</code> has enough permission to create folders and files.
+    The app will create ONLY one folder called <code>tmp</code> in UTUI root folder and two files:
+    <code>bootstrap.php</code> and <code>filesList.xml</code>.<br>
+    If PHP cannot create that folder and these files, the interface will NOT work.<br>
+    I personally solved this problem by changing the group settings (ownership) of UTUI project folder and all files within.<br>
+    Since I am on Linux, I did so using the following command:<br><br>
+    <code>chown -R :www-data utui</code><br><br>
+    When I changed the group to <code>www-data</code> the problem was gone.
+    Naturally, PHP should be in the www-data group.
+    If you still get permission issues, try deleting the <code>tmp</code> folder.
+  </p>
+  <h2 class="center">How to Use</h2>
+  <p>
+    Click on the <img src="./images/help/Selection_014.png" /> icon on the navigation bar to bring up the unit-test
+    interface.
+    Once you're on the uni-test interface, you must select the project on which you want to conduct tests.
+  </p>
+  <h3>Select Your Project's Root Folder</h3>
+  <p>
+    To do that, click on <img src="./images/help/Selection_015.png" /> to enter the path to your project's root folder. 
+  </p>
+  <p>
+    Once you have entered your project's root folder path and it is correct,
+    if your PHP test files are located the <code>tests</code> folder,
+    they will be automatically loaded once you have clicked the <img src="./images/help/Selection_016.png" /> button.
+    If they are not located in the <code>tests</code> folder, you can use the <code>textfield</code> to specify your custom
+    folder. e.g.<br><br>
+    <img src="./images/help/Selection_018.png" />
+  </p>
+  <h3>Load Test Files</h3>
+  <p>
+    Once your project's root and tests folder are correct, after clicking the <img src="./images/help/Selection_016.png" />
+    button, all your PHP test files, including those located in sub-folders will populate the files list pane.
+  </p>
+  <p>
+    e.g.<br>
+    <img src="./images/help/Selection_019.png" />
+  </p>
+  <h3>Running Tests</h3>
+  <p>
+    Once the test files are loaded, click on the <img src="./images/help/Selection_020.png" /> button to run unit tests.
+  </p>
+  <p>
+    To test a single file, uncheck all files by clicking the blank square,
+    without a check mark: <img src="./images/help/Selection_021.png" />
+    and check only the file you want to test. <br>
+    <img src="./images/help/Selection_022.png" />
+    <br> Then click on the <img src="./images/help/Selection_020.png" /> button.
+  </p>
+  <p>
+    <br>Results are displayed on the left in the output pane. Notice, these are phpunit console outputs:
+    <br><br> <img src="./images/help/Selection_023.png" />
+  </p>
+  <h3>Adding Bootstrap File(s)</h3>
+  <p>
+    To boostrap a file, a file which needs to run before the test begins, it must first be located in your project test folder.
+    It won't be visible since its not a test file.
+    To view other files in your project directory, in the filter textfield, type "<code>/</code>"
+    without the quotes.
+  </p>
+  <p>
+      <img src="./images/help/Selection_025.png" />
+  </p>
+  <p>
+    The files will be grey-out and you will not be able to check them like a test file. But if the file is a PHP file,
+    you will be able to bootstrap it. e.g.
+  </p>
+  <p>
+    <img src="./images/help/Selection_024.png" />
+  </p>
+  <p>
+    If you hover the file name with your mouse pointer, a "cogs" icon will appear and you'll be able to click on it.
+  </p>
+  <p>
+    <img src="./images/help/Selection_026.png" />
+  </p>
+  <p>
+    Once you do that, the <code>bootstrap.php</code> file will now be bootstrapped when you click the <img src="./images/help/Selection_020.png" /> to run your test.
+  </p>
+  <h2 class="center">Additional Information</h2>
+  <h3>Source code</h3>
+  <p>
+    web interface: <a href="https://github.com/crownlessking/utui" target="__blank">https://github.com/crownlessking/utui</a><br>
+    phpunit server: <a href="https://github.com/crownlessking/phpunit-server" target="__blank">https://github.com/crownlessking/phpunit-server</a>
+  </p>
+  <h3>Contact Info</h3>
+  <p>
+    If you need additional help or information, do not hesitate to contact me at:<br>
+    <a href="mailto:riviere@crownlessking.com">riviere@crownlessking.com</a>
+  </p>
+</body>
+</html>
