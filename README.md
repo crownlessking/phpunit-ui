@@ -1,30 +1,30 @@
-# UTUI Help Page
-
 UTUI stands for "unit test user interface".  
-As of now, it is a simple interace to get PHPUnit outputs in the browser. Currently, this interface was designed to works with **`[composer](https://getcomposer.org/)`** PHP projects. This means,  
+As of now, it is a simple interace to get PHPUnit outputs in the browser. Currently, this interface was designed to works with [**`composer`**](https://getcomposer.org/) PHP projects. This means,  
 
 *   Your project's root folder must contain a `composer.json` file.
 *   Your project's `vendor/autoload.php` must be properly configured.
-*   You're using **`[phpunit](https://phpunit.de/)`** testing framework.
+*   You're using [**`phpunit`**](https://phpunit.de/) testing framework.
 
 However, if you have your own `autoload.php` file located in `/vendor` from your project's root folder or, you have a `bootstrap` file located in your test folder and provided that you're also using `phpunit`, the interface should still work as it should.
 
 ## Setup
 
-To use UTUI, you first need to download the `PHAR` version of `phpunit`. Once that is done, rename the file to `phpunit`, with no extension. Then paste it in the root folder of UTUI, next to the `index.php` file.
+### Install
 
-**Note:** This interface was implemented using `phpunit.phar version 7.3.x`.
+Once you have unzipped UTUI folder, open a terminal, `cd` into the folder and run the following command:  
+
+`composer install`
 
 ### Troubleshooting
 
-For <cod>PHP</cod> projects, <cod>PHP-CLI</cod> is required. Make sure it is installed properly by doing `php -v` from the command line. the `PHP` version should get printed. If not, download and install it.  
+When using the [`phpunit-server`](https://github.com/crownlessking/phpunit-server), `PHP-CLI` is required. Make sure it is installed properly by doing `php -v` from the command line. the `PHP` version should get printed. If not, download and install it.  
 Permission is the only issue I ran into when developing this interface.  
 Make sure that `PHP` has enough permission to create folders and files. The app will create ONLY one folder called `tmp` in UTUI root folder and two files: `bootstrap.php` and `filesList.xml`.  
 If PHP cannot create that folder and these files, the interface will NOT work.  
 I personally solved this problem by changing the group settings (ownership) of UTUI project folder and all files within.  
-Since I am on Linux, I did so using the following command:  
+Since I am on Linux, assuming that `phpunit-ui-master` is the unzipped folder name, I used the following command:  
 
-`chown -R :www-data utui`  
+`chown -R :www-data phpunit-ui-master`  
 
 When I changed the group to `www-data` the problem was gone. Naturally, PHP should be in the www-data group. If you still get permission issues, try deleting the `tmp` folder.
 
@@ -44,6 +44,18 @@ and finally,
 `chmod -R g+w phpunit-ui-master`  
 
 This should give PHP enough permission to create folders.
+
+### Case of missing `phpunit.phar`
+
+If you are using the `phpunit-server` with this interface,  
+you first need to download the `PHAR` version of `phpunit`. Once that is done, rename the downloaded file to `phpunit`, with no extension. Then copy-paste it in the root folder of UTUI, next to the `index.php` file.
+
+### Updating `phpunit.phar`
+
+It is the same procedure if you want to update `phpunit.phar`.  
+Just overwrite the existing one with the newer version.
+
+**Note:** This interface was implemented using `phpunit.phar version 7.3.x`.
 
 ## How to Use
 
@@ -102,4 +114,4 @@ phpunit server: [https://github.com/crownlessking/phpunit-server](https://github
 ### Contact Info
 
 If you need additional help or information, do not hesitate to contact me at:  
-[riviere@crownlessking.com](mailto:riviere@crownlessking.com)
+[dev@crownlessking.com](mailto:dev@crownlessking.com)

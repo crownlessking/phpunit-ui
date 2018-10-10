@@ -19,12 +19,12 @@
   <p>
     UTUI stands for "unit test user interface".<br>
     As of now, it is a simple interace to get PHPUnit outputs in the browser.
-    Currently, this interface was designed to works with <strong><code><a href="https://getcomposer.org/" target="__blank">composer</a></code></strong> PHP projects.
+    Currently, this interface was designed to works with <a href="https://getcomposer.org/" target="__blank"><strong><code>composer</code></strong></a> PHP projects.
     This means,<br>
     <ul>
       <li>Your project's root folder must contain a <code>composer.json</code> file.</li>
       <li>Your project's <code>vendor/autoload.php</code> must be properly configured.</li>
-      <li>You're using <strong><code><a href="https://phpunit.de/" target="__blank">phpunit</a></code></strong> testing framework.</li>
+      <li>You're using <a href="https://phpunit.de/" target="__blank"><strong><code>phpunit</code></strong></a> testing framework.</li>
     </ul>
   </p>
   <p>
@@ -33,18 +33,15 @@
     the interface should still work as it should.
   </p>
   <h2 class="center">Setup</h2>
+  <h3>Install</h3>
   <p>
-    To use UTUI, you first need to download the <code>PHAR</code> version of <code>phpunit</code>.
-    Once that is done, rename the file to <code>phpunit</code>, with no extension.
-    Then paste it in the root folder of UTUI, next to the <code>index.php</code> file.
-  </p>
-  <p>
-    <strong>Note:</strong>
-    This interface was implemented using <code>phpunit.phar version 7.3.x</code>.
+    Once you have unzipped UTUI folder, open a terminal, <code>cd</code> into the folder and run the following command:<br><br>
+    <code>composer install</code>
   </p>
   <h3>Troubleshooting</h3>
   <p>
-    For <cod>PHP</cod> projects, <cod>PHP-CLI</cod> is required. Make sure it is installed properly by doing <code>php -v</code>
+    When using the <a href="https://github.com/crownlessking/phpunit-server" target="__blank"><code>phpunit-server</code></a>,
+    <code>PHP-CLI</code> is required. Make sure it is installed properly by doing <code>php -v</code>
     from the command line. the <code>PHP</code> version should get printed. If not, download and install it.<br>
     Permission is the only issue I ran into when developing this interface.<br>
     Make sure that <code>PHP</code> has enough permission to create folders and files.
@@ -52,8 +49,8 @@
     <code>bootstrap.php</code> and <code>filesList.xml</code>.<br>
     If PHP cannot create that folder and these files, the interface will NOT work.<br>
     I personally solved this problem by changing the group settings (ownership) of UTUI project folder and all files within.<br>
-    Since I am on Linux, I did so using the following command:<br><br>
-    <code>chown -R :www-data utui</code><br><br>
+    Since I am on Linux, assuming that <code>phpunit-ui-master</code> is the unzipped folder name, I used the following command:<br><br>
+    <code>chown -R :www-data phpunit-ui-master</code><br><br>
     When I changed the group to <code>www-data</code> the problem was gone.
     Naturally, PHP should be in the www-data group.
     If you still get permission issues, try deleting the <code>tmp</code> folder.
@@ -68,6 +65,22 @@
     and then <br><br><code>chmod -R a+rX phpunit-ui-master</code><br><br>
     and finally, <br><br><code>chmod -R g+w phpunit-ui-master</code><br><br>
     This should give PHP enough permission to create folders.
+  </p>
+  <h3>Case of missing <code>phpunit.phar</code></h3>
+  <p>
+    If you are using the <code>phpunit-server</code> with this interface,<br>
+    you first need to download the <code>PHAR</code> version of <code>phpunit</code>.
+    Once that is done, rename the downloaded file to <code>phpunit</code>, with no extension.
+    Then copy-paste it in the root folder of UTUI, next to the <code>index.php</code> file.
+  </p>
+  <h3>Updating <code>phpunit.phar</code></h3>
+  <p>
+    It is the same procedure if you want to update <code>phpunit.phar</code>.<br>
+    Just overwrite the existing one with the newer version.
+  </p>
+  <p>
+    <strong>Note:</strong>
+    This interface was implemented using <code>phpunit.phar version 7.3.x</code>.
   </p>
   <h2 class="center">How to Use</h2>
   <p>
@@ -146,7 +159,7 @@
   <h3>Contact Info</h3>
   <p>
     If you need additional help or information, do not hesitate to contact me at:<br>
-    <a href="mailto:riviere@crownlessking.com">riviere@crownlessking.com</a>
+    <a href="mailto:dev@crownlessking.com">dev@crownlessking.com</a>
   </p>
 </body>
 </html>
