@@ -25,11 +25,11 @@
  * @category API
  * @package  Crownlessking/phpunitserver
  * @author   Riviere King <riviere@crownlessking.com>
- * @license  NL <none.yet@email.com>
- * @link     none@domain.com
+ * @license  NL <email>
+ * @link     domain.com
  */
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   $page = (include 'src/IndexHtml.php');
   echo $page;
   die;
@@ -52,10 +52,20 @@ define('BOOTSTRAP', 'tmp/bootstrap.php');
 define('TEST_LIST_OF_FILES', 2);
 define('TEST_DIRECTORY', 1);
 
-// Declare variables to store request data
+// Project root directory
 $projectRoot = filter_input(INPUT_POST, 'root');
+
+// Directory path within the provided root directory
+// This value will be appended to the project root directory
 $dir = filter_input(INPUT_POST, 'dir');
+
+// This value indicate whether a directory or a list of files test should
+// be conducted.
 $cmd = (int) filter_input(INPUT_POST, 'cmd');
+
+// comma-separated list of filenames that should be bootstrapped.
+// These files are the ones which were activated when clicking on
+// the cogs icon.
 $boot = filter_input(INPUT_POST, 'boot');
 
 // initializing $testDir
