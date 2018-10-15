@@ -11,7 +11,7 @@ However, if you have your own `autoload.php` file located in `/vendor` from your
 
 ### Install
 
-Once you have unzipped UTUI folder, open a terminal, `cd` into the folder and run the following command:  
+Once you have unzipped the folder, open a terminal, `cd` into the folder and run the following command:  
 
 `composer install`
 
