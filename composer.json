@@ -1,5 +1,6 @@
 {
-    "name": "crownlessking/phpunit-server",
+    "name": "crownlessking/phpunit-ui",
+    "version": "1.0.0-alpha",
     "description": "Send phpunit output to a web client",
     "authors": [
         {
