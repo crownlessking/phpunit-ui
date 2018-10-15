@@ -140,4 +140,3 @@ if (count($errors) > 0) {
 }
 
 echo json_encode($json);
-

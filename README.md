@@ -110,8 +110,3 @@ Once you do that, the `bootstrap.php` file will now be bootstrapped when you cli
 
 web interface: [https://github.com/crownlessking/utui](https://github.com/crownlessking/utui)  
 phpunit server: [https://github.com/crownlessking/phpunit-server](https://github.com/crownlessking/phpunit-server)
-
-### Contact Info
-
-If you need additional help or information, do not hesitate to contact me at:  
-[dev@crownlessking.com](mailto:dev@crownlessking.com)
