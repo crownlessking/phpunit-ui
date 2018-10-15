@@ -19,9 +19,9 @@ Once you have unzipped the folder, open a terminal, `cd` into the folder and run
 
 When using the [`phpunit-server`](https://github.com/crownlessking/phpunit-server), `PHP-CLI` is required. Make sure it is installed properly by doing `php -v` from the command line. the `PHP` version should get printed. If not, download and install it.  
 Permission is the only issue I ran into when developing this interface.  
-Make sure that `PHP` has enough permission to create folders and files. The app will create ONLY one folder called `tmp` in UTUI root folder and two files: `bootstrap.php` and `filesList.xml`.  
+Make sure that `PHP` has enough permission to create folders and files. The app will create ONLY one folder called `tmp` in `phpunit-ui` root folder and two files: `bootstrap.php` and `filesList.xml`.  
 If PHP cannot create that folder and these files, the interface will NOT work.  
-I personally solved this problem by changing the group settings (ownership) of UTUI project folder and all files within.  
+I personally solved this problem by changing the group settings (ownership) of `phpunit-ui` project folder and all files within.  
 Since I am on Linux, assuming that `phpunit-ui-master` is the unzipped folder name, I used the following command:  
 
 `chown -R :www-data phpunit-ui-master`  
@@ -30,8 +30,8 @@ When I changed the group to `www-data` the problem was gone. Naturally, PHP shou
 
 ### Troubleshooting GitHub Downloads
 
-After downloading UTUI from GitHub, the permissions will be all messed up.  
-After unzipped the UTUI folder, open a terminal and run the following command on the newly unzipped folder:  
+On linux, after downloading `phpunit-ui` from GitHub, the permissions might be all messed up.  
+If that is the case, once you have unzipped the `phpunit-ui` folder, open a terminal and run the following command on the newly unzipped folder:  
 
 `sudo chown -R :www-data phpunit-ui-master`  
 
@@ -48,7 +48,7 @@ This should give PHP enough permission to create folders.
 ### Case of missing `phpunit.phar`
 
 If you are using the `phpunit-server` with this interface,  
-you first need to download the `PHAR` version of `phpunit`. Once that is done, rename the downloaded file to `phpunit`, with no extension. Then copy-paste it in the root folder of UTUI, next to the `index.php` file.
+you first need to download the `PHAR` version of `phpunit`. Once that is done, rename the downloaded file to `phpunit`, with no extension. Then copy-paste it in the root folder of `phpunit-ui`, next to the `index.php` file.
 
 ### Updating `phpunit.phar`
 
@@ -65,7 +65,7 @@ Click on the ![](./images/help/Selection_014.png) icon on the navigation bar to 
 
 To do that, click on ![](./images/help/Selection_015.png) to enter the path to your project's root folder.
 
-Once you have entered your project's root folder path and it is correct, if your PHP test files are located the `tests` folder, they will be automatically loaded once you have clicked the ![](./images/help/Selection_016.png) button. If they are not located in the `tests` folder, you can use the `textfield` to specify your custom folder. e.g.  
+Once you have entered your project's root folder path and it is correct, if your PHP test files are located the `tests` folder, they will be automatically loaded after clicking the ![](./images/help/Selection_016.png) button. If they are not located in the `tests` folder, you can use the `textfield` to specify your custom folder. e.g.  
 
 ![](./images/help/Selection_018.png)
 

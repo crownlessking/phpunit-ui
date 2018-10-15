@@ -45,10 +45,10 @@
     from the command line. the <code>PHP</code> version should get printed. If not, download and install it.<br>
     Permission is the only issue I ran into when developing this interface.<br>
     Make sure that <code>PHP</code> has enough permission to create folders and files.
-    The app will create ONLY one folder called <code>tmp</code> in UTUI root folder and two files:
+    The app will create ONLY one folder called <code>tmp</code> in <code>phpunit-ui</code> root folder and two files:
     <code>bootstrap.php</code> and <code>filesList.xml</code>.<br>
     If PHP cannot create that folder and these files, the interface will NOT work.<br>
-    I personally solved this problem by changing the group settings (ownership) of UTUI project folder and all files within.<br>
+    I personally solved this problem by changing the group settings (ownership) of <code>phpunit-ui</code> project folder and all files within.<br>
     Since I am on Linux, assuming that <code>phpunit-ui-master</code> is the unzipped folder name, I used the following command:<br><br>
     <code>chown -R :www-data phpunit-ui-master</code><br><br>
     When I changed the group to <code>www-data</code> the problem was gone.
@@ -57,8 +57,9 @@
   </p>
   <h3>Troubleshooting GitHub Downloads</h3>
   <p>
-    After downloading UTUI from GitHub, the permissions will be all messed up.<br>
-    After unzipped the UTUI folder, open a terminal and run the following command on the newly unzipped folder:<br>
+    On linux, after downloading <code>phpunit-ui</code> from GitHub, the permissions might be all messed up.<br>
+    If that is the case, once you have unzipped the <code>phpunit-ui</code> folder, open a terminal and run the 
+    following command on the newly unzipped folder:<br>
   </p>
   <p>
     <code>sudo chown -R :www-data phpunit-ui-master</code><br><br>
@@ -71,7 +72,7 @@
     If you are using the <code>phpunit-server</code> with this interface,<br>
     you first need to download the <code>PHAR</code> version of <code>phpunit</code>.
     Once that is done, rename the downloaded file to <code>phpunit</code>, with no extension.
-    Then copy-paste it in the root folder of UTUI, next to the <code>index.php</code> file.
+    Then copy-paste it in the root folder of <code>phpunit-ui</code>, next to the <code>index.php</code> file.
   </p>
   <h3>Updating <code>phpunit.phar</code></h3>
   <p>
@@ -95,7 +96,7 @@
   <p>
     Once you have entered your project's root folder path and it is correct,
     if your PHP test files are located the <code>tests</code> folder,
-    they will be automatically loaded once you have clicked the <img src="./images/help/Selection_016.png" /> button.
+    they will be automatically loaded after clicking the <img src="./images/help/Selection_016.png" /> button.
     If they are not located in the <code>tests</code> folder, you can use the <code>textfield</code> to specify your custom
     folder. e.g.<br><br>
     <img src="./images/help/Selection_018.png" />
